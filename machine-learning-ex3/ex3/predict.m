@@ -21,6 +21,21 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% Add ones to the X data matrix
+X = [ones(m, 1) X];
+
+layer1 = sigmoid(X * Theta1');
+
+% add ones to layer1 output
+layer1 = [ones(size(layer1, 1), 1) layer1];
+
+value = sigmoid(layer1 * Theta2');
+
+[v, i] = max(value, [], 2);
+
+p = i;
+
+
 
 
 
